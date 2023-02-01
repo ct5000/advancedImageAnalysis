@@ -42,6 +42,9 @@ print("point 2: ", dino_noise[6])
 print("point 3: ", dino_noise[7])
 print("Smooth point: ", new_dino[6])
 
+print(dino_noise.shape)
+print(new_dino.shape)
+
 '''
 plt.figure(2)
 plt.subplot(121)

@@ -45,12 +45,21 @@ def segmentationBoundaryLoop(segmentation):
     return seg_length
 
 
+def segmentationBoundary(segmentation):
+    l1 = (segmentation[:-1,:] != segmentation[1:,:]).sum()
+    l2 = (segmentation[:,:-1] != segmentation[:,1:]).sum()
+    return l1 + l2
 
 
+'''
 print("1: ", segmentationBoundaryLoop(Cell1))
 print("2: ", segmentationBoundaryLoop(Cell2))
 print("3: ", segmentationBoundaryLoop(Cell3))
-
+'''
+print("new implement")
+print("1: ", segmentationBoundary(Cell1))
+print("2: ", segmentationBoundary(Cell2))
+print("3: ", segmentationBoundary(Cell3))
 
 
 
