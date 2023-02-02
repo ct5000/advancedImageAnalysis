@@ -32,10 +32,13 @@ def curveSmooth(curve,lamb, steps):
     return X
 
 
+def euclidianLength(p1,p2):
+    length = np.sqrt((p2[0]-p1[0])**2+(p2[1]-p1[1])**2)
+    return length
 
 
 
-new_dino = curveSmooth(dino_noise,0.5,100)
+new_dino = curveSmooth(dino_noise,0.19,1)
 
 print("point 1: ", dino_noise[5])
 print("point 2: ", dino_noise[6])
@@ -44,6 +47,14 @@ print("Smooth point: ", new_dino[6])
 
 print(dino_noise.shape)
 print(new_dino.shape)
+
+curveLength = euclidianLength(new_dino[0,:],new_dino[new_dino.shape[0]-1,:])
+
+for i in range(1,new_dino.shape[0]):
+    curveLength += euclidianLength(new_dino[i-1,:],new_dino[i,:])
+
+print("quiz")
+print(curveLength)
 
 '''
 plt.figure(2)

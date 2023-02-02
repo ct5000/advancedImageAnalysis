@@ -56,6 +56,7 @@ print("1: ", segmentationBoundaryLoop(Cell1))
 print("2: ", segmentationBoundaryLoop(Cell2))
 print("3: ", segmentationBoundaryLoop(Cell3))
 '''
+
 print("new implement")
 print("1: ", segmentationBoundary(Cell1))
 print("2: ", segmentationBoundary(Cell2))

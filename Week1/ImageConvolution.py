@@ -77,7 +77,7 @@ g2, dg2, x2 = guassianKernel(np.sqrt(20),5)
 g3, dg3, x3 = guassianKernel(np.sqrt(2),5)
 
 convT20 = ndimage.convolve(ndimage.convolve(Im,g2),g2.T)
-
+'''
 convT2 = Im
 for n in range(10):
     convT2 = ndimage.convolve(ndimage.convolve(convT2,g3),g3.T)
@@ -85,8 +85,8 @@ for n in range(10):
 convDiff2 = convT20 - convT2
 plt.figure(7)
 plt.imshow(convDiff2)
-
-
+'''
+'''
 g4, dg4, x4 = guassianKernel(np.sqrt(10),5)
 convT10 = Im
 for n in range(2):
@@ -94,8 +94,15 @@ for n in range(2):
 convDiff3 = convT20 - convT10
 plt.figure(8)
 plt.imshow(convDiff3)
+'''
 
 
+
+quiz_Im = np.float32(skimage.io.imread("noisy_number_2023.png"))
+g, dg, x = guassianKernel(20,5)
+quizConv = ndimage.convolve(ndimage.convolve(quiz_Im,g),g.T)
+plt.figure(9)
+plt.imshow(quizConv)
 
 
 plt.show()
