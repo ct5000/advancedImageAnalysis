@@ -1,0 +1,4 @@
+radius_mean_varying: 23.78
+number_fibers: 9326
+fiber_radius_mean: 3.09
+display_name: CThulstrup

@@ -17,7 +17,7 @@ def guassianKernel(sigma, breadth):
 
 
 
-g, dg, ddg, x = guassianKernel(10,5)
+g, dg, ddg, x = guassianKernel(19,5)
 '''
 plt.figure(1)
 plt.plot(x[0,:],ddg[0,:])
@@ -38,10 +38,10 @@ Im_lapx = ndimage.convolve(ndimage.convolve(Im_test,ddg),g.T)
 Im_lapy = ndimage.convolve(ndimage.convolve(Im_test,ddg.T),g)
 Im_lap = Im_lapx + Im_lapy
 
-'''
+
 plt.figure(4)
 plt.imshow(Im_lap)
-'''
+
 
 
 def detectBlobs(Im, sigma, breadth,threshold):
