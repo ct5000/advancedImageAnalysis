@@ -1,0 +1,4 @@
+keypoint_number: 371
+magnification_scale: 2.71
+rotation_angle: 2.7386
+display_name: CThulstrup
