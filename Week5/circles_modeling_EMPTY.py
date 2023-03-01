@@ -7,14 +7,21 @@ import matplotlib.pyplot as plt
 
 #%%
 
+def segmentationBoundary(segmentation):
+    l1 = (segmentation[:-1,:] != segmentation[1:,:]).sum()
+    l2 = (segmentation[:,:-1] != segmentation[:,1:]).sum()
+    return l1 + l2
+
 def segmentation_energy(S, D, mu, beta):
     # TODO -- add your code here
-    
+    for i in range(len(mu)):
+        S[S==i] = mu[i]
     # likelihood energy
-    U1 = 0
+    U1 = sum(sum((S-D)**2))
     
     # prior energy
-    U2 = 0
+
+    U2 = beta * segmentationBoundary(S)
     
     return U1, U2
 
@@ -60,12 +67,11 @@ segmentations += [S_t]
 #%% visualization
 fig, ax = plt.subplots()
 ax.imshow(D, vmin=0, vmax=255, cmap=plt.cm.gray)
-plt.show()
+
 
 
 fig, ax = plt.subplots(3, len(segmentations), figsize=(10, 10))
-beta = 100
-
+beta = 1000
 for i, s in enumerate(segmentations):
     ax[0][i].imshow(s)
 

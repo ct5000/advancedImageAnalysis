@@ -1,0 +1,4 @@
+prior_noisy: 70
+likelihood_stripes: 415
+posterior_small: 450
+display_name: CThulstrup
