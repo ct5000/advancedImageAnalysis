@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import skimage.io 
 import slgbuilder
 
-
-I = skimage.io.imread('../../../../Data/week7/peaks_image.png').astype(np.int32)
+np.bool = bool
+I = skimage.io.imread('peaks_image.png').astype(np.int32)
 
 fig, ax = plt.subplots(1,2)
 ax[0].imshow(I, cmap='gray')
@@ -35,4 +35,4 @@ for line in segmentation_lines:
     ax[1].plot(line, 'r')
 
 
-
+plt.show()

@@ -4,7 +4,8 @@ import skimage.io
 import slgbuilder
 
 #%% input
-I = skimage.io.imread('../../../../Data/week7/layers_A.png').astype(np.int32)
+np.bool = bool
+I = skimage.io.imread('layers_A.png').astype(np.int32)
 
 fig, ax = plt.subplots(1,4)
 ax[0].imshow(I, cmap='gray')
@@ -64,3 +65,5 @@ ax[3].imshow(I, cmap='gray')
 for line in segmentation_lines:
     ax[3].plot(line, 'r')
 ax[3].set_title('two dark lines')
+
+plt.show()

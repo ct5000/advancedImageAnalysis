@@ -1,0 +1,4 @@
+line_cost: 19
+zero_cost: 19
+two_cost: 10
+display_name: CThulstrup
