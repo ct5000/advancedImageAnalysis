@@ -1,0 +1,4 @@
+inside_area: 37994
+f_ext: 0.4285
+external_energy: 18752.45
+display_name: CThulstrup
