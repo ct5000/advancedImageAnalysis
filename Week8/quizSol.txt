@@ -1,0 +1,4 @@
+class_probability: 0.69
+loss_value: 1.171
+partial_derivative: 10
+display_name: CThulstrup
