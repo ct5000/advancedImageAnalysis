@@ -25,10 +25,9 @@ y2_norm = np.exp(y2)/(np.exp(y1)+np.exp(y2))
 print(y1_norm)
 
 loss = -np.log(y2_norm)
-print(loss)
 
 
-delta2_2 = y1
+delta2_2 = y1_norm
 dLoss_dw11_2 = h1*delta2_2
 
 print(dLoss_dw11_2)

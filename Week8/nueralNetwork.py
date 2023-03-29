@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 
 def neuralNetwork(X, T, n_inputs,n_outputs,n_hidden_notes,n_hidden_layers,learning_rate,train_rounds):
+
     W = [np.random.normal(size=[n_inputs+1,n_hidden_notes])]
     for i in range(n_hidden_layers-1):
         W.append(np.random.normal(size=[n_hidden_notes+1,n_hidden_notes]))
@@ -13,7 +14,7 @@ def neuralNetwork(X, T, n_inputs,n_outputs,n_hidden_notes,n_hidden_layers,learni
 
 
     for k in range(train_rounds):
-        test_point = np.reshape(X[:,k],[2,1])
+        test_point = np.reshape(X[:,k],[n_inputs,1])
         # Forward part
         
         h = []
@@ -31,7 +32,7 @@ def neuralNetwork(X, T, n_inputs,n_outputs,n_hidden_notes,n_hidden_layers,learni
         Q = [None] * (n_hidden_layers+1) 
         delta = [None] * (n_hidden_layers+1) 
         
-        delta[n_hidden_layers] = y-np.reshape(T[:,k],[2,1])
+        delta[n_hidden_layers] = y-np.reshape(T[:,k],[n_inputs,1])
         Q[n_hidden_layers] = np.vstack([np.reshape(h[n_hidden_layers-1],[n_hidden_notes,1]),1]) @ delta[n_hidden_layers].T 
         
 
@@ -46,11 +47,11 @@ def neuralNetwork(X, T, n_inputs,n_outputs,n_hidden_notes,n_hidden_layers,learni
         for i in range(n_hidden_layers+1):
             W[i] = W[i] - learning_rate*Q[i]
 
-        return W
+    return W
 
 
-n_points = 200
-X, T, x, dim = make_data.make_data(3,n=n_points)
+n_points = 5000
+X, T, x, dim = make_data.make_data(3,n=n_points,noise=1)
 mean = np.mean(X,axis=1)
 variance = np.var(X,axis=1)
 
@@ -95,7 +96,7 @@ print(W)
 test_rounds = n_points*2 - train_rounds
 n_succes = 0
 for k in range(test_rounds):
-    test_point = np.reshape(X[:,train_rounds+k],[2,1])
+    test_point = np.reshape(X[:,train_rounds+k],[n_inputs,1])
     # Forward part
     
     h = []
@@ -114,7 +115,7 @@ for k in range(test_rounds):
     elif y[0] < y[1]:
         if T[1,train_rounds+k]:
             n_succes += 1
-
+print("Success rate")
 print(n_succes/test_rounds)
 
 
