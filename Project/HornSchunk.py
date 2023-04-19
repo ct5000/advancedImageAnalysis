@@ -37,12 +37,6 @@ for i in range(iterations):
     v = v_bar - ((Im1y*(Im1x*u_bar+Im1y*v_bar+Imt))/(alpha**2 + Im1x**2 + Im2y**2))
 
 
-plt.figure()
-plt.subplot(211)
-plt.imshow(Im1)
-
-plt.subplot(212)
-plt.imshow(Im2)
 
 
 
