@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 import cv2
 
 
-dino = np.loadtxt("curves/dino.txt")
-dino_noise = np.loadtxt("curves/dino_noisy.txt")
+dino = np.loadtxt("/home/christian/advancedImageAnalysis/Week1/curves/dino.txt")
+dino_noise = np.loadtxt("/home/christian/advancedImageAnalysis/Week1/curves/dino_noisy.txt")
 
-hand = np.loadtxt("curves/hand.txt")
-hand_noise = np.loadtxt("curves/hand_noisy.txt")
+hand = np.loadtxt("/home/christian/advancedImageAnalysis/Week1/curves/hand.txt")
+hand_noise = np.loadtxt("/home/christian/advancedImageAnalysis/Week1/curves/hand_noisy.txt")
 print(type(dino))
 '''
 print(dino[0,:])
@@ -97,7 +97,7 @@ def curveSmoothImplicit(curve,alpha, beta):
     X = linalg.inv((np.eye(N)-alpha*A-beta*B)) @ curve
     return X
 
-new_dino3 = curveSmoothImplicit(dino_noise,5,3)
+new_dino3 = curveSmoothImplicit(dino_noise,0.2,0.2)
 plt.figure(4)
 plt.subplot(121)
 plt.scatter(dino_noise[:,0],dino_noise[:,1])
@@ -105,10 +105,10 @@ plt.subplot(122)
 plt.scatter(new_dino3[:,0],new_dino3[:,1])
 
 
-new_hand = curveSmoothImplicit(hand_noise,5,3)
+new_hand = curveSmoothImplicit(dino_noise,0.2,20)
 plt.figure(5)
 plt.subplot(121)
-plt.scatter(hand_noise[:,0],hand_noise[:,1])
+plt.scatter(dino_noise[:,0],dino_noise[:,1])
 plt.subplot(122)
 plt.scatter(new_hand[:,0],new_hand[:,1])
 

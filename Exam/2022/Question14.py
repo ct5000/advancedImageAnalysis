@@ -8,7 +8,6 @@ T = data[:,3].astype(int)
 Y_hat = data[:,4:]
 
 Y = (np.exp(Y_hat.T)/np.sum(np.exp(Y_hat.T),axis=0,keepdims=True)).T
-print(Y)
 
 loss = 0
 for i in range(Y.shape[0]):
